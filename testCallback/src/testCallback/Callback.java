@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
+@Path("/callback")
 public class Callback {
 
 	
@@ -16,8 +16,15 @@ public class Callback {
 	@POST
 	public Response deletedRide(String message)
 		{
-		 System.out.println("server has informed, driver voided a booked transfer: "+message);
+		 System.out.println("CALLBACK: server has informed, driver voided a booked transfer: "+message);
 		 return Response.status(Status.OK).entity("CALLBACK: received-->"+message).build();
 		 ///commento a caso
+		}
+	
+	@Path("/echo")
+	@GET
+	public Response echo()
+		{
+		return Response.status(Status.OK).entity("echo deddio").build();
 		}
 }
