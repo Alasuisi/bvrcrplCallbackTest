@@ -12,12 +12,12 @@ public class Callback {
 
 	
 	@Path("/driver/delete")
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@POST
 	public Response deletedRide(String message)
 		{
-		 System.out.println("CALLBACK: server has informed, driver voided a booked transfer: "+message);
-		 return Response.status(Status.OK).entity("CALLBACK: received-->"+message).build();
+		 System.out.println("CALLBACK: server has informed, driver voided a booked transfer: "+System.lineSeparator()+message);
+		 return Response.status(Status.OK).entity("CALLBACK: received information").build();
 		 ///commento a caso
 		}
 	
